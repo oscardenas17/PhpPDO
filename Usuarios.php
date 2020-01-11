@@ -46,6 +46,30 @@ class Usuarios extends Conexion{
        }
     }
 
+    public function get(){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT * FROM usuarios");
+        $statement ->execute();
+
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+
+    public function delete($Id){        
+        $statement = $this->db->prepare("DELETE FROM usuarios WHERE ID_USUARIO = :Id");
+        $statement ->bindParam(':Id',$Id);
+
+        if( $statement->execute()){
+            echo "eliminado exitosamente";
+        }else{
+            echo "Ocurrio un error";
+        }
+    }
+    
+
 
 }
 

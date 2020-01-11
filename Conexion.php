@@ -14,7 +14,7 @@ class Conexion{
             dbname={$this->dbname}",$this->usuario, $this->contrasena);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            echo  "Conectado";
+            /*echo  "Conectado";*/
 
             return $db;
         }catch(PDOException $e){
